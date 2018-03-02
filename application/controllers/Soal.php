@@ -129,19 +129,6 @@ class Soal extends CI_Controller
                 'pilihan_e' => set_value('pilihan_e', $row->pilihan_e),
         		'jawaban' => set_value('jawaban', $row->jawaban),
         	    );
-                'matauji_data' => $this->Matauji_Model->get_all(),
-                'soal_data' => $this->Soal_model->get_by_id($id),
-
-		'id_soal' => set_value('id_soal', $row->id_soal),
-        'id_matauji' => set_value('id_matauji', $row->id_matauji),
-		'pertanyaan' => set_value('pertanyaan', $row->pertanyaan),
-		'pilihan_a' => set_value('pilihan_a', $row->pilihan_a),
-		'pilihan_b' => set_value('pilihan_b', $row->pilihan_b),
-		'pilihan_c' => set_value('pilihan_c', $row->pilihan_c),
-		'pilihan_d' => set_value('pilihan_d', $row->pilihan_d),
-        'pilihan_e' => set_value('pilihan_e', $row->pilihan_e),
-		'jawaban' => set_value('jawaban', $row->jawaban),
-	    );
             $this->template->load('template','soal/tbl_soal_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
