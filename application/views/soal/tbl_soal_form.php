@@ -19,11 +19,11 @@
 	   		</td>
 	   	</tr>
 	    <tr><td width='200'>Pertanyaan <?php echo form_error('pertanyaan') ?></td><td><input type="text" class="form-control" name="pertanyaan" id="pertanyaan" placeholder="Pertanyaan" value="<?php echo $pertanyaan; ?>" /></td></tr>
-	    <tr><td width='200'>A <?php echo form_error('pilihan_a') ?></td><td><input type="text" class="form-control" name="pilihan_a" id="pilihan_a" placeholder="Pilihan A" value="<?php echo $pilihan_a; ?>" /></td></tr>
-	    <tr><td width='200'>B <?php echo form_error('pilihan_b') ?></td><td><input type="text" class="form-control" name="pilihan_b" id="pilihan_b" placeholder="Pilihan B" value="<?php echo $pilihan_b; ?>" /></td></tr>
-	    <tr><td width='200'>C <?php echo form_error('pilihan_c') ?></td><td><input type="text" class="form-control" name="pilihan_c" id="pilihan_c" placeholder="Pilihan C" value="<?php echo $pilihan_c; ?>" /></td></tr>
-	    <tr><td width='200'>D <?php echo form_error('pilihan_d') ?></td><td><input type="text" class="form-control" name="pilihan_d" id="pilihan_d" placeholder="Pilihan D" value="<?php echo $pilihan_d; ?>" /></td></tr>
-	    <tr><td width='200'>E <?php echo form_error('pilihan_e') ?></td><td><input type="text" class="form-control" name="pilihan_e" id="pilihan_e" placeholder="Pilihan E" value="<?php echo $pilihan_e; ?>" /></td></tr>
+	    <tr><td width='200'>A <?php echo form_error('pilihan_a') ?></td><td><input type="text" class="form-control" name="pilihan_a" id="pilihan_a" placeholder="A" value="<?php echo $pilihan_a; ?>" /></td></tr>
+	    <tr><td width='200'>B <?php echo form_error('pilihan_b') ?></td><td><input type="text" class="form-control" name="pilihan_b" id="pilihan_b" placeholder="B" value="<?php echo $pilihan_b; ?>" /></td></tr>
+	    <tr><td width='200'>C <?php echo form_error('pilihan_c') ?></td><td><input type="text" class="form-control" name="pilihan_c" id="pilihan_c" placeholder="C" value="<?php echo $pilihan_c; ?>" /></td></tr>
+	    <tr><td width='200'>D <?php echo form_error('pilihan_d') ?></td><td><input type="text" class="form-control" name="pilihan_d" id="pilihan_d" placeholder="D" value="<?php echo $pilihan_d; ?>" /></td></tr>
+	    <tr><td width='200'>E <?php echo form_error('pilihan_e') ?></td><td><input type="text" class="form-control" name="pilihan_e" id="pilihan_e" placeholder="E" value="<?php echo $pilihan_e; ?>" /></td></tr>
 	    <tr><td width='200'>Jawaban <?php echo form_error('jawaban') ?></td><td><input type="text" class="form-control" name="jawaban" id="jawaban" placeholder="Jawaban " value="<?php echo $jawaban; ?>" /></td></tr>
 	    <tr><td></td><td><input type="hidden" name="id_soal" value="<?php echo $id_soal; ?>" /> 
 	    <button type="submit" class="btn btn-danger"><i class="fa fa-floppy-o"></i> <?php echo $button ?></button> 
