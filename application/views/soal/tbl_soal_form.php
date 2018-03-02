@@ -9,11 +9,12 @@
             
 <table class='table table-bordered>'>   
 	   	<tr>
-	   		<td>Mata Uji</td>
+	   		<td>Nama Mata Uji</td>
 	   		<td>
 	   			<?php 
 	   				if ($this->uri->segment('2')=="update") {
 	   			 ?>
+<<<<<<< HEAD
 	   			 <select name="id_matauji" class="form-control">
 						<?php 
 							foreach ($matauji_data as $matauji) {
@@ -24,13 +25,24 @@
 						 ?>
 				</select>
 	   			 <?php } else{ ?>
+=======
+	   			 <select>
+	   			 	<?php 
+	   			 		foreach ($matauji_data as $matauji ) {
+	   			 			echo "<option value='$matauji->id_matauji'>";
+	   			 			echo $soal_data['id_matauji']==$matauji->id_matauji?'selected':'';
+	   			 			echo ">$matauji->nama_matauji</option>";
+	   			 		}
+	   			 	 ?>
+	   			 </select>
+	   			 <?php } ?>
+>>>>>>> 3be74d4a1a19471e48d765ee2ab4940e526d847a
 
 	   			<select name="id_matauji" id="id_matauji" class="form-control">
 	   				<?php foreach ($matauji_data as $matauji): ?>
 	   				<option value="<?php echo $matauji->id_matauji ?>"><?php echo $matauji->nama_matauji ?></option>
 	   				<?php endforeach ?>
 	   			</select>
-	   			<?php } ?>
 	   		</td>
 
 	   	</tr>
