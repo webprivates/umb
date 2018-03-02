@@ -18,6 +18,7 @@ class Soal_model extends CI_Model
         function matauji($limit, $start = 0, $q = NULL)
         {
 
+            //Relasikan tabel dengan dinamis
             $this->db->join('tbl_matauji', 'tbl_matauji.id_matauji = tbl_soal.id_matauji', $q);
             $this->db->limit($limit, $start);
             return $this->db->get('tbl_soal')->result();
