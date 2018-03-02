@@ -118,6 +118,9 @@ class Soal extends CI_Controller
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('soal/update_action'),
+                'matauji_data' => $this->Matauji_model->get_all(),
+                'soal_data' => $this->Soal_model->get_by_id($id),
+
 		'id_soal' => set_value('id_soal', $row->id_soal),
         'id_matauji' => set_value('id_matauji', $row->id_matauji),
 		'pertanyaan' => set_value('pertanyaan', $row->pertanyaan),
