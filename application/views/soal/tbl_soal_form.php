@@ -7,9 +7,17 @@
             </div>
             <form action="<?php echo $action; ?>" method="post">
             
-<table class='table table-bordered>'        
-
-	    <tr><td width='200'>Id Matauji <?php echo form_error('id_matauji') ?></td><td><input type="text" class="form-control" name="id_matauji" id="id_matauji" placeholder="Id Matauji" value="<?php echo $id_matauji; ?>" /></td></tr>
+<table class='table table-bordered>'>   
+	   	<tr>
+	   		<td>Mata Uji</td>
+	   		<td>
+	   			<select name="id_matauji" id="id_matauji" class="form-control">
+	   				<?php foreach ($matauji_data as $matauji): ?>
+	   				<option value="<?php echo $matauji->id_matauji ?>"><?php echo $matauji->nama_matauji ?></option>
+	   				<?php endforeach ?>
+	   			</select>
+	   		</td>
+	   	</tr>
 	    <tr><td width='200'>Pertanyaan <?php echo form_error('pertanyaan') ?></td><td><input type="text" class="form-control" name="pertanyaan" id="pertanyaan" placeholder="Pertanyaan" value="<?php echo $pertanyaan; ?>" /></td></tr>
 	    <tr><td width='200'>A <?php echo form_error('pilihan_a') ?></td><td><input type="text" class="form-control" name="pilihan_a" id="pilihan_a" placeholder="Pilihan A" value="<?php echo $pilihan_a; ?>" /></td></tr>
 	    <tr><td width='200'>B <?php echo form_error('pilihan_b') ?></td><td><input type="text" class="form-control" name="pilihan_b" id="pilihan_b" placeholder="Pilihan B" value="<?php echo $pilihan_b; ?>" /></td></tr>

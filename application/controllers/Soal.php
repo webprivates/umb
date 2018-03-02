@@ -10,6 +10,7 @@ class Soal extends CI_Controller
         parent::__construct();
         //is_login();
         $this->load->model('Soal_model');
+        $this->load->model('Matauji_model');
         $this->load->library('form_validation');
     }
 
@@ -70,6 +71,7 @@ class Soal extends CI_Controller
     {
         $data = array(
             'button' => 'Create',
+            'matauji_data' => $this->Matauji_model->get_all(),
             'action' => site_url('soal/create_action'),
 	    'id_soal' => set_value('id_soal'),
 	    'id_matauji' => set_value('id_matauji'),
