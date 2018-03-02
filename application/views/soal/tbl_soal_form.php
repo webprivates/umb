@@ -18,7 +18,7 @@
 						<?php 
 							foreach ($matauji_data as $matauji) {
 								echo " <option value='$matauji->id_matauji'";
-								echo $soal_data['id_matauji']==$matauji->id_matauji?'selected':'' ;
+								echo $id_matauji==$matauji->id_matauji?'selected':'' ;
 								echo ">$matauji->nama_matauji</option>";
 							}
 						 ?>
