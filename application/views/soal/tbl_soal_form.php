@@ -14,7 +14,6 @@
 	   			<?php 
 	   				if ($this->uri->segment('2')=="update") {
 	   			 ?>
-<<<<<<< HEAD
 	   			 <select name="id_matauji" class="form-control">
 						<?php 
 							foreach ($matauji_data as $matauji) {
@@ -25,7 +24,6 @@
 						 ?>
 				</select>
 	   			 <?php } else{ ?>
-=======
 	   			 <select>
 	   			 	<?php 
 	   			 		foreach ($matauji_data as $matauji ) {
