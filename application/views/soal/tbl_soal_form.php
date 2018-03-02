@@ -14,22 +14,23 @@
 	   			<?php 
 	   				if ($this->uri->segment('2')=="update") {
 	   			 ?>
-	   			 <select>
-	   			 	<?php 
-	   			 		foreach ($matauji_data as $data ) {
-	   			 			echo "<option value='$data->id_matauji'";
-	   			 			echo $soal_data['id_matauji']==$data->id_matauji?'selected':'';
-	   			 			echo ">$data->nama_matauji</option>";
-	   			 		}
-	   			 	 ?>
-	   			 </select>
-	   			 <?php } ?>
+	   			 <select name="id_matauji" class="form-control">
+						<?php 
+							foreach ($matauji_data as $matauji) {
+								echo " <option value='$matauji->id_matauji'";
+								echo $soal_data['id_matauji']==$matauji->id_matauji?'selected':'' ;
+								echo ">$matauji->nama_matauji</option>";
+							}
+						 ?>
+				</select>
+	   			 <?php } else{ ?>
 
 	   			<select name="id_matauji" id="id_matauji" class="form-control">
 	   				<?php foreach ($matauji_data as $matauji): ?>
 	   				<option value="<?php echo $matauji->id_matauji ?>"><?php echo $matauji->nama_matauji ?></option>
 	   				<?php endforeach ?>
 	   			</select>
+	   			<?php } ?>
 	   		</td>
 
 	   	</tr>
