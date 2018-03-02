@@ -34,7 +34,6 @@
 	   			 	 ?>
 	   			 </select>
 	   			 <?php } ?>
->>>>>>> 3be74d4a1a19471e48d765ee2ab4940e526d847a
 
 	   			<select name="id_matauji" id="id_matauji" class="form-control">
 	   				<?php foreach ($matauji_data as $matauji): ?>

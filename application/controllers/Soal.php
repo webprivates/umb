@@ -142,7 +142,6 @@ class Soal extends CI_Controller
         'pilihan_e' => set_value('pilihan_e', $row->pilihan_e),
 		'jawaban' => set_value('jawaban', $row->jawaban),
 	    );
->>>>>>> 3be74d4a1a19471e48d765ee2ab4940e526d847a
             $this->template->load('template','soal/tbl_soal_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
