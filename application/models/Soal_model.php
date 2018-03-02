@@ -17,23 +17,10 @@ class Soal_model extends CI_Model
 
         function matauji($limit, $start = 0, $q = NULL)
         {
-            $query = ('SELECT
-                        tbl_soal.id_soal,
-                        tbl_soal.id_matauji,
-                        tbl_soal.pertanyaan,
-                        tbl_soal.pilihan_a,
-                        tbl_soal.pilihan_b,
-                        tbl_soal.pilihan_c,
-                        tbl_soal.pilihan_d,
-                        tbl_soal.pilihan_e,
-                        tbl_soal.jawaban,
-                        tbl_matauji.id_matauji,
-                        tbl_matauji.nama_matauji,
-                        tbl_matauji.aktif
-                        FROM
-                        tbl_matauji
-                        INNER JOIN tbl_soal ON tbl_matauji.id_matauji = tbl_soal.id_matauji');
-            return $this->db->query($query);
+
+            $this->db->join('tbl_matauji', 'tbl_matauji.id_matauji = tbl_soal.id_matauji', $q);
+            $this->db->limit($limit, $start);
+            return $this->db->get('tbl_soal')->result();
         }
 
     // get all
@@ -69,17 +56,17 @@ class Soal_model extends CI_Model
     function get_limit_data($limit, $start = 0, $q = NULL) {
         $this->db->order_by($this->id, $this->order);
         $this->db->like('id_soal', $q);
-    $this->db->or_like('id_matauji', $q);
-	$this->db->or_like('pertanyaan', $q);
-	$this->db->or_like('pilihan_a', $q);
-	$this->db->or_like('pilihan_b', $q);
-	$this->db->or_like('pilihan_c', $q);
-	$this->db->or_like('pilihan_d', $q);
-    $this->db->or_like('pilihan_e', $q);
-	$this->db->or_like('jawaban', $q);
-	$this->db->limit($limit, $start);
-        return $this->db->get($this->table)->result();
-    }
+        $this->db->or_like('id_matauji', $q);
+    	$this->db->or_like('pertanyaan', $q);
+    	$this->db->or_like('pilihan_a', $q);
+    	$this->db->or_like('pilihan_b', $q);
+    	$this->db->or_like('pilihan_c', $q);
+    	$this->db->or_like('pilihan_d', $q);
+        $this->db->or_like('pilihan_e', $q);
+    	$this->db->or_like('jawaban', $q);
+    	$this->db->limit($limit, $start);
+            return $this->db->get($this->table)->result();
+        }
 
     // insert data
     function insert($data)

@@ -16,22 +16,21 @@ class Soal extends CI_Controller
     public function index()
     {
         $q = urldecode($this->input->get('q', TRUE));
-        $start = intval($this->uri->segment(3));
+        $start = intval($this->input->get('start'));
         
         if ($q <> '') {
-            $config['base_url'] = base_url() . '.php/c_url/index.html?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'index.php/soal/index.html?q=' . urlencode($q);
+            $config['base_url'] = base_url() . 'soal?q=' . urlencode($q);
+            $config['first_url'] = base_url() . 'soal?q=' . urlencode($q);
         } else {
-            $config['base_url'] = base_url() . 'index.php/soal/index/';
-            $config['first_url'] = base_url() . 'index.php/soal/index/';
+            $config['base_url'] = base_url() . 'soal';
+            $config['first_url'] = base_url() . 'soal';
         }
 
         $config['per_page'] = 10;
-        $config['page_query_string'] = FALSE;
+        $config['page_query_string'] = TRUE;
         $config['total_rows'] = $this->Soal_model->total_rows($q);
-        $soal = $this->Soal_model->matauji($config['per_page'], $start, $q)->result();
-        $config['full_tag_open'] = '<ul class="pagination pagination-sm no-margin pull-right">';
-        $config['full_tag_close'] = '</ul>';
+        $soal = $this->Soal_model->matauji($config['per_page'], $start, $q);
+
         $this->load->library('pagination');
         $this->pagination->initialize($config);
 
