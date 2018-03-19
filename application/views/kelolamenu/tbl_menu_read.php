@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>SIUMB | STMIK Handayani</title>
+        <title>SIUMPT | STMIK Handayani</title>
         <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>"/>
         <style>
             body{

@@ -20,6 +20,7 @@ class Soal_model extends CI_Model
 
             //Relasikan tabel dengan dinamis
             $this->db->join('tbl_matauji', 'tbl_matauji.id_matauji = tbl_soal.id_matauji', $q);
+            $this->db->order_by('id_soal','DESC');
             $this->db->limit($limit, $start);
             return $this->db->get('tbl_soal')->result();
         }
