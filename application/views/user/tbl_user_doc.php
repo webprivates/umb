@@ -20,12 +20,12 @@
         <table class="word-table" style="margin-bottom: 10px">
             <tr>
                 <th>No</th>
-		<th>Full Name</th>
+		<th>Nama Lengkap</th>
 		<th>Email</th>
 		<th>Password</th>
-		<th>Images</th>
-		<th>Id User Level</th>
-		<th>Is Aktif</th>
+		<th>Foto Profil</th>
+		<th>Level User</th>
+		<th>Status</th>
 		
             </tr><?php
             foreach ($user_data as $user)

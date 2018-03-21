@@ -185,6 +185,64 @@ class Mahasiswa extends CI_Controller
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
+    public function excel()
+    {
+        $this->load->helper('exportexcel');
+        $namaFile = "tbl_mahasiswa.xls";
+        $judul = "tbl_mahasiswa";
+        $tablehead = 0;
+        $tablebody = 1;
+        $nourut = 1;
+        //penulisan header
+        header("Pragma: public");
+        header("Expires: 0");
+        header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
+        header("Content-Type: application/force-download");
+        header("Content-Type: application/octet-stream");
+        header("Content-Type: application/download");
+        header("Content-Disposition: attachment;filename=" . $namaFile . "");
+        header("Content-Transfer-Encoding: binary ");
+
+        xlsBOF();
+
+        $kolomhead = 0;
+        xlsWriteLabel($tablehead, $kolomhead++, "No");
+        xlsWriteLabel($tablehead, $kolomhead++, "username");
+        xlsWriteLabel($tablehead, $kolomhead++, "nama_mahasiswa");
+        xlsWriteLabel($tablehead, $kolomhead++, "asal_sekolah");
+        xlsWriteLabel($tablehead, $kolomhead++, "no_pendaftaran");
+        foreach ($this->Mahasiswa_model->get_all() as $data) {
+                $kolombody = 0;
+
+                //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
+                xlsWriteNumber($tablebody, $kolombody++, $id_mahasiswa);
+            xlsWriteLabel($tablebody, $kolombody++, $data->username);
+            xlsWriteLabel($tablebody, $kolombody++, $data->nama_mahasiswa);
+            xlsWriteLabel($tablebody, $kolombody++, $data->asal_sekolah);
+            xlsWriteLabel($tablebody, $kolombody++, $data->no_pendaftaran);
+
+            $tablebody++;
+                $nourut++;
+            }
+
+            xlsEOF();
+            exit();
+    }
+
+
+    public function word()
+    {
+        header("Content-type: application/vnd.ms-word");
+        header("Content-Disposition: attachment;Filename=tbl_mahasiswa.doc");
+
+        $data = array(
+            'tbl_mahasiswa_data' => $this->Mahasiswa_model->get_all(),
+            'start' => 0
+        );
+        
+        $this->load->view('user/tbl_mahasiswa_doc',$data);
+    }
+
 }
 
 /* End of file Mahasiswa.php */
