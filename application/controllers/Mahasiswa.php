@@ -206,17 +206,19 @@ class Mahasiswa extends CI_Controller
         xlsBOF();
 
         $kolomhead = 0;
-        xlsWriteLabel($tablehead, $kolomhead++, "No");
-        xlsWriteLabel($tablehead, $kolomhead++, "username");
-        xlsWriteLabel($tablehead, $kolomhead++, "nama_mahasiswa");
-        xlsWriteLabel($tablehead, $kolomhead++, "asal_sekolah");
-        xlsWriteLabel($tablehead, $kolomhead++, "no_pendaftaran");
+        xlsWriteLabel($tablehead, $kolomhead++, "Id Mahasiswa");
+        xlsWriteLabel($tablehead, $kolomhead++, "Username");
+        xlsWriteLabel($tablehead, $kolomhead++, "Password");
+        xlsWriteLabel($tablehead, $kolomhead++, "Nama_mahasiswa");
+        xlsWriteLabel($tablehead, $kolomhead++, "Asal_sekolah");
+        xlsWriteLabel($tablehead, $kolomhead++, "No_pendaftaran");
         foreach ($this->Mahasiswa_model->get_all() as $data) {
                 $kolombody = 0;
 
                 //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
                 xlsWriteNumber($tablebody, $kolombody++, $id_mahasiswa);
             xlsWriteLabel($tablebody, $kolombody++, $data->username);
+            xlsWriteLabel($tablebody, $kolombody++, $data->password);
             xlsWriteLabel($tablebody, $kolombody++, $data->nama_mahasiswa);
             xlsWriteLabel($tablebody, $kolombody++, $data->asal_sekolah);
             xlsWriteLabel($tablebody, $kolombody++, $data->no_pendaftaran);
