@@ -3,7 +3,7 @@
     <section class="content">
         <div class="box box-warning box-solid">
             <div class="box-header with-border">
-                <h3 class="box-title">INPUT DATA TBL_SETTINGSOAL</h3>
+                <h3 class="box-title">INPUT DATA SETTING SOAL</h3>
             </div>
             <form action="<?php echo $action; ?>" method="post">
             

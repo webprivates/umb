@@ -5,7 +5,7 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA TBL_SOAL</h3>
+                        <h3 class="box-title">KELOLA DATA SOAL</h3>
                     </div>
         
         <div class="box-body">
@@ -28,7 +28,7 @@
                                     <?php
                                 }
                             ?>
-                          <button class="btn btn-primary" type="submit">Search</button>
+                          <button class="btn btn-primary" type="submit">Cari</button>
                         </span>
                     </div>
                 </form>

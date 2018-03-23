@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>SIUMPT | STMIK Handayani</title>
+        <title>harviacode.com - codeigniter crud generator</title>
         <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>"/>
         <style>
             body{
@@ -15,7 +15,7 @@
 	    <tr><td>Nama Panitia</td><td><?php echo $nama_panitia; ?></td></tr>
 	    <tr><td>Username</td><td><?php echo $username; ?></td></tr>
 	    <tr><td>Password</td><td><?php echo $password; ?></td></tr>
-	    <tr><td>Jabatan</td><td><?php echo $jabatan; ?></td></tr>
+	    <tr><td>Status</td><td><?php echo $status; ?></td></tr>
 	    <tr><td></td><td><a href="<?php echo site_url('panitia') ?>" class="btn btn-default">Cancel</a></td></tr>
 	</table>
         </body>

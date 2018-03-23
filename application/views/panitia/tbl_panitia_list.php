@@ -53,7 +53,7 @@
 		<th>Nama Panitia</th>
 		<th>Username</th>
 		<th>Password</th>
-		<th>Jabatan</th>
+		<th>Status</th>
 		<th>Action</th>
             </tr><?php
             foreach ($panitia_data as $panitia)
@@ -64,10 +64,10 @@
 			<td><?php echo $panitia->nama_panitia ?></td>
 			<td><?php echo $panitia->username ?></td>
 			<td><?php echo $panitia->password ?></td>
-			<td><?php echo $panitia->jabatan ?></td>
+			<td><?php echo $panitia->status ?></td>
 			<td style="text-align:center" width="200px">
 				<?php 
-				// echo anchor(site_url('panitia/read/'.$panitia->id_panitia),'<i class="fa fa-eye" aria-hidden="true"></i>','class="btn btn-danger btn-sm"'); 
+				echo anchor(site_url('panitia/read/'.$panitia->id_panitia),'<i class="fa fa-eye" aria-hidden="true"></i>','class="btn btn-danger btn-sm"'); 
 				echo '  '; 
 				echo anchor(site_url('panitia/update/'.$panitia->id_panitia),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm"'); 
 				echo '  '; 
