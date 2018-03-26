@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2018 at 09:41 AM
+-- Generation Time: Mar 27, 2018 at 12:41 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.5.24
 
@@ -23,6 +23,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_batch`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_batch` (
+  `id_batch` int(11) NOT NULL,
+  `nama_batch` varchar(30) NOT NULL,
+  `waktu_batch` varchar(30) NOT NULL,
+  `status` enum('1','0','','') NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_batch`
+--
+
+INSERT INTO `tbl_batch` (`id_batch`, `nama_batch`, `waktu_batch`, `status`) VALUES
+(1, 'Batch 1', '08.00 - 10.00', '1'),
+(2, 'Batch 2', '10.00 - 12.00', '1'),
+(3, 'Batch 3', '13.00 - 15.00', '1'),
+(4, 'Batch 4', '15.00 - 17.00', '1');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_hak_akses`
 --
 
@@ -30,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `tbl_hak_akses` (
   `id` int(11) NOT NULL,
   `id_user_level` int(11) NOT NULL,
   `id_menu` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_hak_akses`
@@ -45,7 +68,59 @@ INSERT INTO `tbl_hak_akses` (`id`, `id_user_level`, `id_menu`) VALUES
 (29, 2, 2),
 (30, 1, 2),
 (31, 3, 14),
-(32, 3, 20);
+(32, 3, 20),
+(34, 3, 11),
+(35, 1, 11),
+(36, 1, 10),
+(37, 1, 12),
+(38, 1, 13),
+(39, 1, 14),
+(40, 1, 16),
+(41, 1, 17),
+(42, 1, 20),
+(43, 1, 22);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_home`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_home` (
+  `id_home` int(11) NOT NULL,
+  `total_peserta` int(11) NOT NULL,
+  `konfir` int(11) NOT NULL,
+  `blm_konfir` int(11) NOT NULL,
+  `total_soal` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_home`
+--
+
+INSERT INTO `tbl_home` (`id_home`, `total_peserta`, `konfir`, `blm_konfir`, `total_soal`) VALUES
+(1, 10, 1, 3, 100);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_jurusan`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_jurusan` (
+  `id_jurusan` int(11) NOT NULL,
+  `kode_jurusan` varchar(10) NOT NULL,
+  `nama_jurusan` varchar(40) NOT NULL,
+  `status` enum('1','0','','') NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_jurusan`
+--
+
+INSERT INTO `tbl_jurusan` (`id_jurusan`, `kode_jurusan`, `nama_jurusan`, `status`) VALUES
+(1, '020', 'Teknik Informatika', '1'),
+(3, '030', 'Sistem Komputer', '1');
 
 -- --------------------------------------------------------
 
@@ -82,16 +157,16 @@ CREATE TABLE IF NOT EXISTS `tbl_matauji` (
   `id_matauji` int(11) NOT NULL,
   `nama_matauji` varchar(35) NOT NULL,
   `aktif` enum('0','1') NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_matauji`
 --
 
 INSERT INTO `tbl_matauji` (`id_matauji`, `nama_matauji`, `aktif`) VALUES
-(2, 'Verbal', '1'),
-(3, 'Numerik', '1'),
-(4, 'Logika', '1');
+(1, 'Verbal', '1'),
+(2, 'Numerik', '1'),
+(3, 'Logika', '1');
 
 -- --------------------------------------------------------
 
@@ -106,25 +181,30 @@ CREATE TABLE IF NOT EXISTS `tbl_menu` (
   `icon` varchar(30) NOT NULL,
   `is_main_menu` int(11) NOT NULL,
   `is_aktif` enum('y','n') NOT NULL COMMENT 'y=yes,n=no'
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_menu`
 --
 
 INSERT INTO `tbl_menu` (`id_menu`, `title`, `url`, `icon`, `is_main_menu`, `is_aktif`) VALUES
-(1, 'KELOLA MENU', 'kelolamenu', 'fa fa-server', 0, 'y'),
-(2, 'KELOLA PENGGUNA', 'user', 'fa fa-user-o', 17, 'y'),
-(3, 'LEVEL PENGGUNA', 'userlevel', 'fa fa-users', 17, 'y'),
-(9, 'CONTOH FORM', 'welcome/form', 'fa fa-id-card', 17, 'n'),
-(10, 'KELOLA PANITIA', 'Panitia', 'fa fa-user', 0, 'y'),
-(11, 'KELOLA MAHASISWA', 'Mahasiswa', 'fa fa-users', 0, 'y'),
-(12, 'KELOLA SOAL', 'Welcome', 'fa fa-desktop', 0, 'y'),
-(13, 'MATA UJI', 'Matauji', 'fa fa-folder', 12, 'y'),
-(14, 'SOAL', 'Soal', 'fa fa-folder', 12, 'y'),
-(16, 'SETTING SOAL', 'Settingsoal', 'fa fa-folder', 12, 'y'),
-(17, 'KELOLA ADMIN', 'admin', 'fa fa-archive', 0, 'y'),
-(20, 'MENU UJIAN', 'Ujian', 'fa fa-archive', 0, 'y');
+(1, 'Kelola Menu', 'kelolamenu', 'fa fa-server', 12, 'y'),
+(2, 'Pengguna Sistem', 'user', 'fa fa-user-o', 12, 'y'),
+(3, 'Level Pengguna', 'userlevel', 'fa fa-users', 12, 'y'),
+(9, 'Contoh Form', 'welcome/form', 'fa fa-id-card', 0, 'n'),
+(10, 'Laporan Panitia', 'Panitia', 'fa fa-user', 24, 'y'),
+(11, 'Peserta', 'Mahasiswa', 'fa fa-users', 0, 'n'),
+(12, 'Pengaturan Sistem', 'Welcome', 'fa fa-cogs', 0, 'y'),
+(13, 'Mata Ujian', 'Matauji', 'fa fa-folder', 23, 'y'),
+(14, 'Soal', 'Soal', 'fa fa-folder', 23, 'y'),
+(16, 'Setting Soal', 'Settingsoal', 'fa fa-folder', 23, 'y'),
+(20, 'Laporan Hasil Ujian', 'Ujian', 'fa fa-archive', 24, 'y'),
+(22, 'Home', 'Home', 'fa fa-home', 0, 'y'),
+(23, 'Data Ujian', 'Ujian', 'fa fa-cog', 0, 'y'),
+(24, 'Laporan', 'Laporan', 'fa fa-desktop', 0, 'y'),
+(25, 'Laporan Peserta', 'Peserta', 'fa fa-user', 24, 'y'),
+(26, 'Batch', 'Batch', 'fa fa-desktop', 23, 'y'),
+(27, 'Jurusan', 'Jurusan', 'fa fa-desktop', 23, 'y');
 
 -- --------------------------------------------------------
 
@@ -137,17 +217,49 @@ CREATE TABLE IF NOT EXISTS `tbl_panitia` (
   `nama_panitia` varchar(25) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `jabatan` varchar(30) NOT NULL
+  `status` enum('1','0') NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_panitia`
 --
 
-INSERT INTO `tbl_panitia` (`id_panitia`, `nama_panitia`, `username`, `password`, `jabatan`) VALUES
-(2, 'Wiwik', 'Wiwikramna', '123456', 'Ketua Panitia'),
-(3, 'Zanifa Arisha', 'Zanifa23', '123456', 'Wakil'),
-(4, 'Awahyuni', 'Yuyhe31', '1234123', 'Sekretaris');
+INSERT INTO `tbl_panitia` (`id_panitia`, `nama_panitia`, `username`, `password`, `status`) VALUES
+(2, 'Wiwik', 'Wiwikramna', '123456', '1'),
+(3, 'Zanifa Arisha', 'Zanifa23', '123456', '1'),
+(4, 'Awahyuni', 'Yuyhe31', '1234123', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_peserta`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_peserta` (
+  `id_peserta` int(11) NOT NULL,
+  `id_jurusan` int(11) NOT NULL,
+  `id_panitia` int(11) NOT NULL,
+  `id_batch` int(11) NOT NULL,
+  `nama_peserta` varchar(50) NOT NULL,
+  `jenkel` enum('P','L') NOT NULL,
+  `nama_ayah` varchar(50) NOT NULL,
+  `nama_ibu` varchar(50) NOT NULL,
+  `tgl_lahir` date NOT NULL,
+  `alamat` text NOT NULL,
+  `no_tlp` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `username` varchar(15) NOT NULL,
+  `password` varchar(15) NOT NULL,
+  `status` enum('1','0') NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_peserta`
+--
+
+INSERT INTO `tbl_peserta` (`id_peserta`, `id_jurusan`, `id_panitia`, `id_batch`, `nama_peserta`, `jenkel`, `nama_ayah`, `nama_ibu`, `tgl_lahir`, `alamat`, `no_tlp`, `email`, `username`, `password`, `status`) VALUES
+(1, 1, 1, 1, 'WIwik', 'P', 'dkn', 'dkhfi', '1997-01-31', 'Jl. Abdesir', '082395149760', 'Wiwik@gmail.com', 'peserta1', 'peserta1', '1'),
+(3, 2, 3, 2, 'jaya', 'L', 'ksd', 'lkj', '1998-01-01', 'abde', '0823917379191', 'iwwiwi@gmail.com', 'ieieiei', 'cdhcheohd', '1');
 
 -- --------------------------------------------------------
 
@@ -184,7 +296,7 @@ CREATE TABLE IF NOT EXISTS `tbl_settingsoal` (
 --
 
 INSERT INTO `tbl_settingsoal` (`id_set`, `jumlah_soal`) VALUES
-(1, 20);
+(1, 100);
 
 -- --------------------------------------------------------
 
@@ -238,21 +350,24 @@ INSERT INTO `tbl_soal` (`id_soal`, `id_matauji`, `pertanyaan`, `pilihan_a`, `pil
 
 CREATE TABLE IF NOT EXISTS `tbl_ujian` (
   `id_ujian` int(11) NOT NULL,
-  `id_soal` int(11) NOT NULL,
-  `id_mahasiswa` int(11) NOT NULL,
+  `id_peserta` int(11) NOT NULL,
+  `id_panitia` int(11) NOT NULL,
+  `id_batch` int(11) NOT NULL,
+  `jumlah_salah` int(11) NOT NULL,
+  `jumlah_benar` int(11) NOT NULL,
   `nilai` int(11) NOT NULL,
-  `status` varchar(20) NOT NULL
+  `status` enum('1','0') NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_ujian`
 --
 
-INSERT INTO `tbl_ujian` (`id_ujian`, `id_soal`, `id_mahasiswa`, `nilai`, `status`) VALUES
-(1, 1, 6, 50, 'Tidak Lulus'),
-(2, 1, 7, 80, 'Lulus'),
-(3, 1, 3, 74, 'Lulus'),
-(4, 1, 8, 87, 'Lulus');
+INSERT INTO `tbl_ujian` (`id_ujian`, `id_peserta`, `id_panitia`, `id_batch`, `jumlah_salah`, `jumlah_benar`, `nilai`, `status`) VALUES
+(1, 6, 0, 0, 0, 0, 50, '1'),
+(2, 7, 0, 0, 0, 0, 80, '1'),
+(3, 3, 0, 0, 0, 0, 74, ''),
+(4, 8, 0, 0, 0, 0, 87, '1');
 
 -- --------------------------------------------------------
 
@@ -278,7 +393,7 @@ INSERT INTO `tbl_user` (`id_users`, `full_name`, `email`, `password`, `images`, 
 (1, 'Nuris Akbar M.Kom', 'nuris.akbar@gmail.com', '$2y$04$Wbyfv4xwihb..POfhxY5Y.jHOJqEFIG3dLfBYwAmnOACpH0EWCCdq', 'atomix_user31.png', 1, 'y'),
 (3, 'Muhammad hafidz Muzaki', 'hafid@gmail.com', '$2y$04$Wbyfv4xwihb..POfhxY5Y.jHOJqEFIG3dLfBYwAmnOACpH0EWCCdq', '7.png', 2, 'y'),
 (7, 'wiwik', 'wiwikramna@gmail.com', '$2y$04$L4C0LJ9ZcFmhsPmjtJVkxOhL5XeGr7oMhxWTQftydbbQpmQZmxITO', 'download_(2).jpg', 1, 'y'),
-(8, 'Mahasiswa', 'mahasiswa@gmail.com', '$2y$04$Tw6PnHRroHp1QHYOKgQnT.QFYF/gGKH17OrohlodWNx1nAPTCGCh6', '', 3, 'y');
+(8, 'Mahasiswa', 'mahasiswa@gmail.com', '$2y$04$Tw6PnHRroHp1QHYOKgQnT.QFYF/gGKH17OrohlodWNx1nAPTCGCh6', '', 3, 'n');
 
 -- --------------------------------------------------------
 
@@ -296,8 +411,8 @@ CREATE TABLE IF NOT EXISTS `tbl_user_level` (
 --
 
 INSERT INTO `tbl_user_level` (`id_user_level`, `nama_level`) VALUES
-(1, 'Super Admin'),
-(2, 'Admin'),
+(1, 'Admin'),
+(2, 'Panitia'),
 (3, 'Peserta');
 
 --
@@ -305,10 +420,28 @@ INSERT INTO `tbl_user_level` (`id_user_level`, `nama_level`) VALUES
 --
 
 --
+-- Indexes for table `tbl_batch`
+--
+ALTER TABLE `tbl_batch`
+  ADD PRIMARY KEY (`id_batch`);
+
+--
 -- Indexes for table `tbl_hak_akses`
 --
 ALTER TABLE `tbl_hak_akses`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_home`
+--
+ALTER TABLE `tbl_home`
+  ADD PRIMARY KEY (`id_home`);
+
+--
+-- Indexes for table `tbl_jurusan`
+--
+ALTER TABLE `tbl_jurusan`
+  ADD PRIMARY KEY (`id_jurusan`);
 
 --
 -- Indexes for table `tbl_mahasiswa`
@@ -333,6 +466,12 @@ ALTER TABLE `tbl_menu`
 --
 ALTER TABLE `tbl_panitia`
   ADD PRIMARY KEY (`id_panitia`);
+
+--
+-- Indexes for table `tbl_peserta`
+--
+ALTER TABLE `tbl_peserta`
+  ADD PRIMARY KEY (`id_peserta`);
 
 --
 -- Indexes for table `tbl_setting`
@@ -375,10 +514,25 @@ ALTER TABLE `tbl_user_level`
 --
 
 --
+-- AUTO_INCREMENT for table `tbl_batch`
+--
+ALTER TABLE `tbl_batch`
+  MODIFY `id_batch` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `tbl_hak_akses`
 --
 ALTER TABLE `tbl_hak_akses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=44;
+--
+-- AUTO_INCREMENT for table `tbl_home`
+--
+ALTER TABLE `tbl_home`
+  MODIFY `id_home` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tbl_jurusan`
+--
+ALTER TABLE `tbl_jurusan`
+  MODIFY `id_jurusan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tbl_mahasiswa`
 --
@@ -388,17 +542,22 @@ ALTER TABLE `tbl_mahasiswa`
 -- AUTO_INCREMENT for table `tbl_matauji`
 --
 ALTER TABLE `tbl_matauji`
-  MODIFY `id_matauji` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id_matauji` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `tbl_panitia`
 --
 ALTER TABLE `tbl_panitia`
   MODIFY `id_panitia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `tbl_peserta`
+--
+ALTER TABLE `tbl_peserta`
+  MODIFY `id_peserta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tbl_setting`
 --
