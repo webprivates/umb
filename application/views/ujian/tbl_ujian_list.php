@@ -5,7 +5,7 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA Hasil UJIAN</h3>
+                        <h3 class="box-title">KELOLA DATA HASIL UJIAN</h3>
                     </div>
         
         <div class="box-body">
@@ -27,7 +27,7 @@
                                     <?php
                                 }
                             ?>
-                          <button class="btn btn-primary" type="submit">Search</button>
+                          <button class="btn btn-primary" type="submit">Cari</button>
                         </span>
                     </div>
                 </form>
@@ -77,7 +77,7 @@
 				echo '  '; 
 				echo anchor(site_url('ujian/update/'.$ujian->id_ujian),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm"'); 
 				echo '  '; 
-				echo anchor(site_url('ujian/delete/'.$ujian->id_ujian),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+				echo anchor(site_url('ujian/delete/'.$ujian->id_ujian),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" Delete','onclick="javasciprt: return confirm(\'Yakin Menghapus ?\')"'); 
 				?>
 			</td>
 		</tr>

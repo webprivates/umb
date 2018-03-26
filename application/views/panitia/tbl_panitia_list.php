@@ -5,7 +5,7 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA TBL_PANITIA</h3>
+                        <h3 class="box-title">KELOLA DATA PANITIA</h3>
                     </div>
         
         <div class="box-body">
@@ -27,7 +27,7 @@
                                     <?php
                                 }
                             ?>
-                          <button class="btn btn-primary" type="submit">Search</button>
+                          <button class="btn btn-primary" type="submit">Cari</button>
                         </span>
                     </div>
                 </form>
@@ -71,7 +71,7 @@
 				echo '  '; 
 				echo anchor(site_url('panitia/update/'.$panitia->id_panitia),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm"'); 
 				echo '  '; 
-				echo anchor(site_url('panitia/delete/'.$panitia->id_panitia),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+				echo anchor(site_url('panitia/delete/'.$panitia->id_panitia),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" Delete','onclick="javasciprt: return confirm(\'Yakin Menghapus ?\')"'); 
 				?>
 			</td>
 		</tr>

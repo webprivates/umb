@@ -10,7 +10,7 @@
         </style>
     </head>
     <body>
-        <h2 style="margin-top:0px">Tbl_menu Read</h2>
+        <h2 style="margin-top:0px">Tampilan Menu</h2>
         <table class="table">
 	    <tr><td>Title</td><td><?php echo $title; ?></td></tr>
 	    <tr><td>Url</td><td><?php echo $url; ?></td></tr>

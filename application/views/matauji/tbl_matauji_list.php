@@ -68,7 +68,7 @@
 				echo '  '; 
 				echo anchor(site_url('matauji/update/'.$matauji->id_matauji),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm"'); 
 				echo '  '; 
-				echo anchor(site_url('matauji/delete/'.$matauji->id_matauji),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+				echo anchor(site_url('matauji/delete/'.$matauji->id_matauji),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" Delete','onclick="javasciprt: return confirm(\'Yakin Menghapus ?\')"'); 
 				?>
 			</td>
 		</tr>

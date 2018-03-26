@@ -38,7 +38,7 @@
 
             <header class="main-header">
                 <!-- Logo -->
-                <a href="<?php echo base_url() ?>adminlte/index2.html" class="logo">
+                <a href="<?php echo base_url() ?>Home" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><b>A</b>LT</span>
                     <!-- logo for regular state and mobile devices -->
@@ -71,7 +71,7 @@
 
                                         <p>
                                             <?php echo $this->session->userdata('full_name'); ?>                                         
-                                            <small>Member since Nov. 2012</small>
+                                            <small>Member Sejak 2018</small>
                                         </p>
                                     </li>
                                     <!-- Menu Footer-->
@@ -111,7 +111,7 @@
                 <div class="pull-right hidden-xs">
                     <b>Version</b> 2.4.0
                 </div>
-                <strong>Copyright &copy; 2018 <a href="https://adminlte.io">STMIK Handayani</a>.</strong> All rights
+                <strong>Copyright &copy; 2018 <a href="https://adminlte.io">Wiwik - 2014020031</a>.</strong> All rights
                 reserved.
             </footer>
 

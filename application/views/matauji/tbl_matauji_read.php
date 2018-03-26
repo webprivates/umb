@@ -10,7 +10,7 @@
         </style>
     </head>
     <body>
-        <h2 style="margin-top:0px">Tbl_matauji Read</h2>
+        <h2 style="margin-top:0px">Tampilan Mata Ujian</h2>
         <table class="table">
 	    <tr><td>Nama Matauji</td><td><?php echo $nama_matauji; ?></td></tr>
 	    <tr><td>Status Aktif</td><td><?php echo $aktif; ?></td></tr>
