@@ -3,3 +3,6 @@
         <?php echo alert('alert-info', 'Selamat Datang', 'Selamat Datang Di Halaman Utama SISTEM INFORMASI UJIAN MASUK MABA STMIK HANDAYANI MAKASSAR')?>
     </section>
 </div>
+
+
+		

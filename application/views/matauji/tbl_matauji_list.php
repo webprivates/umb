@@ -51,7 +51,7 @@
             <tr>
                 <th>No</th>
 		<th>Nama Matauji</th>
-		<th>Aktif</th>
+		<th>Status Aktif</th>
 		<th>Action</th>
             </tr><?php
             foreach ($matauji_data as $matauji)
@@ -61,6 +61,7 @@
 			<td width="10px"><?php echo ++$start ?></td>
 			<td><?php echo $matauji->nama_matauji ?></td>
 			<td><?php echo $matauji->aktif ?></td>
+            
 			<td style="text-align:center" width="200px">
 				<?php 
 				// echo anchor(site_url('matauji/read/'.$matauji->id_matauji),'<i class="fa fa-eye" aria-hidden="true"></i>','class="btn btn-danger btn-sm"'); 

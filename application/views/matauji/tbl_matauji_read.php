@@ -13,8 +13,8 @@
         <h2 style="margin-top:0px">Tbl_matauji Read</h2>
         <table class="table">
 	    <tr><td>Nama Matauji</td><td><?php echo $nama_matauji; ?></td></tr>
-	    <tr><td>Aktif</td><td><?php echo $aktif; ?></td></tr>
-	    <tr><td></td><td><a href="<?php echo site_url('matauji') ?>" class="btn btn-default">Cancel</a></td></tr>
+	    <tr><td>Status Aktif</td><td><?php echo $aktif; ?></td></tr>
+	    <tr><td></td><td><a href="<?php echo site_url('matauji') ?>" class="btn btn-default">Kembali</a></td></tr>
 	</table>
         </body>
 </html>
