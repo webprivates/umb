@@ -5,7 +5,7 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA TBL_UJIAN</h3>
+                        <h3 class="box-title">KELOLA DATA Hasil UJIAN</h3>
                     </div>
         
         <div class="box-body">
@@ -50,10 +50,9 @@
         <table class="table table-bordered" style="margin-bottom: 10px">
             <tr>
                 <th>No</th>
-		<th>Id Soal</th>
-		<th>Id Mahasiswa</th>
-		<th>Id Panitia</th>
-		<th>Id Batch</th>
+		<th>Nama Peserta</th>
+		<th>Nama Panitia</th>
+		<th>Nama Batch</th>
 		<th>Jumlah Salah</th>
 		<th>Jumlah Benar</th>
 		<th>Nilai</th>
@@ -65,10 +64,9 @@
                 ?>
                 <tr>
 			<td width="10px"><?php echo ++$start ?></td>
-			<td><?php echo $ujian->id_soal ?></td>
-			<td><?php echo $ujian->id_mahasiswa ?></td>
-			<td><?php echo $ujian->id_panitia ?></td>
-			<td><?php echo $ujian->id_batch ?></td>
+			<td><?php echo $ujian->nama_peserta ?></td>
+			<td><?php echo $ujian->nama_panitia ?></td>
+			<td><?php echo $ujian->nama_batch ?></td>
 			<td><?php echo $ujian->jumlah_salah ?></td>
 			<td><?php echo $ujian->jumlah_benar ?></td>
 			<td><?php echo $ujian->nilai ?></td>

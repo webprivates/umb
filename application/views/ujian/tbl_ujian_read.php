@@ -10,10 +10,9 @@
         </style>
     </head>
     <body>
-        <h2 style="margin-top:0px">Tbl_ujian Read</h2>
-        <table class="table">
-	    <tr><td>Id Soal</td><td><?php echo $id_soal; ?></td></tr>
-	    <tr><td>Id Mahasiswa</td><td><?php echo $id_mahasiswa; ?></td></tr>
+        <h2 style="margin-top:0px">Hasil Ujian Read</h2>
+        <table class="table table-bordered">
+	    <tr><td>Id Peserta</td><td><?php echo $id_peserta; ?></td></tr>
 	    <tr><td>Id Panitia</td><td><?php echo $id_panitia; ?></td></tr>
 	    <tr><td>Id Batch</td><td><?php echo $id_batch; ?></td></tr>
 	    <tr><td>Jumlah Salah</td><td><?php echo $jumlah_salah; ?></td></tr>

@@ -8,30 +8,34 @@ class Ujian extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        is_login();
+        //is_login();
         $this->load->model('Ujian_model');
+        $this->load->model('Mahasiswa_model');
+        $this->load->model('Panitia_model');
+        $this->load->model('Matauji_model');
         $this->load->library('form_validation');
     }
 
     public function index()
     {
         $q = urldecode($this->input->get('q', TRUE));
-        $start = intval($this->uri->segment(3));
+        $start = intval($this->input->get('start'));
         
         if ($q <> '') {
-            $config['base_url'] = base_url() . '.php/c_url/index.html?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'index.php/ujian/index.html?q=' . urlencode($q);
+            $config['base_url'] = base_url() . 'ujian?q=' . urlencode($q);
+            $config['first_url'] = base_url() . 'ujian?q=' . urlencode($q);
         } else {
-            $config['base_url'] = base_url() . 'index.php/ujian/index/';
-            $config['first_url'] = base_url() . 'index.php/ujian/index/';
+            $config['base_url'] = base_url() . 'ujian';
+            $config['first_url'] = base_url() . 'ujian';
         }
 
         $config['per_page'] = 10;
         $config['page_query_string'] = FALSE;
         $config['total_rows'] = $this->Ujian_model->total_rows($q);
         $ujian = $this->Ujian_model->get_limit_data($config['per_page'], $start, $q);
-        $config['full_tag_open'] = '<ul class="pagination pagination-sm no-margin pull-right">';
-        $config['full_tag_close'] = '</ul>';
+        $ujian = $this->Ujian_model->peserta($config['per_page'], $start, $q);
+        $ujian = $this->Ujian_model->panitia($config['per_page'], $start, $q);
+        $ujian = $this->Ujian_model->batch($config['per_page'], $start, $q);
         $this->load->library('pagination');
         $this->pagination->initialize($config);
 
@@ -51,8 +55,7 @@ class Ujian extends CI_Controller
         if ($row) {
             $data = array(
 		'id_ujian' => $row->id_ujian,
-		'id_soal' => $row->id_soal,
-		'id_mahasiswa' => $row->id_mahasiswa,
+		'id_peserta' => $row->id_peserta,
 		'id_panitia' => $row->id_panitia,
 		'id_batch' => $row->id_batch,
 		'jumlah_salah' => $row->jumlah_salah,
@@ -71,10 +74,13 @@ class Ujian extends CI_Controller
     {
         $data = array(
             'button' => 'Create',
+            'peserta_data' => $this->Peserta_model->get_all(),
+            'panitia_data' => $this->Panitia_model->get_all(),
+            'batch_data' => $this->Batch_model->get_all(),
             'action' => site_url('ujian/create_action'),
+
 	    'id_ujian' => set_value('id_ujian'),
-	    'id_soal' => set_value('id_soal'),
-	    'id_mahasiswa' => set_value('id_mahasiswa'),
+	    'id_peserta' => set_value('id_peserta'),
 	    'id_panitia' => set_value('id_panitia'),
 	    'id_batch' => set_value('id_batch'),
 	    'jumlah_salah' => set_value('jumlah_salah'),
@@ -93,8 +99,7 @@ class Ujian extends CI_Controller
             $this->create();
         } else {
             $data = array(
-		'id_soal' => $this->input->post('id_soal',TRUE),
-		'id_mahasiswa' => $this->input->post('id_mahasiswa',TRUE),
+		'id_peserta' => $this->input->post('id_peserta',TRUE),
 		'id_panitia' => $this->input->post('id_panitia',TRUE),
 		'id_batch' => $this->input->post('id_batch',TRUE),
 		'jumlah_salah' => $this->input->post('jumlah_salah',TRUE),
@@ -116,10 +121,12 @@ class Ujian extends CI_Controller
         if ($row) {
             $data = array(
                 'button' => 'Update',
+                'peserta_data' => $this->Peserta_model->get_all(),
+                'panitia_data' => $this->Panitia_model->get_all(),
+                'batch_data' => $this->Batch_model->get_all(),
                 'action' => site_url('ujian/update_action'),
 		'id_ujian' => set_value('id_ujian', $row->id_ujian),
-		'id_soal' => set_value('id_soal', $row->id_soal),
-		'id_mahasiswa' => set_value('id_mahasiswa', $row->id_mahasiswa),
+		'id_peserta' => set_value('id_peserta', $row->id_peserta),
 		'id_panitia' => set_value('id_panitia', $row->id_panitia),
 		'id_batch' => set_value('id_batch', $row->id_batch),
 		'jumlah_salah' => set_value('jumlah_salah', $row->jumlah_salah),
@@ -142,8 +149,7 @@ class Ujian extends CI_Controller
             $this->update($this->input->post('id_ujian', TRUE));
         } else {
             $data = array(
-		'id_soal' => $this->input->post('id_soal',TRUE),
-		'id_mahasiswa' => $this->input->post('id_mahasiswa',TRUE),
+		'id_peserta' => $this->input->post('id_peserta',TRUE),
 		'id_panitia' => $this->input->post('id_panitia',TRUE),
 		'id_batch' => $this->input->post('id_batch',TRUE),
 		'jumlah_salah' => $this->input->post('jumlah_salah',TRUE),
@@ -174,8 +180,7 @@ class Ujian extends CI_Controller
 
     public function _rules() 
     {
-	$this->form_validation->set_rules('id_soal', 'id soal', 'trim|required');
-	$this->form_validation->set_rules('id_mahasiswa', 'id mahasiswa', 'trim|required');
+	$this->form_validation->set_rules('id_peserta', 'id peserta', 'trim|required');
 	$this->form_validation->set_rules('id_panitia', 'id panitia', 'trim|required');
 	$this->form_validation->set_rules('id_batch', 'id batch', 'trim|required');
 	$this->form_validation->set_rules('jumlah_salah', 'jumlah salah', 'trim|required');
@@ -192,5 +197,5 @@ class Ujian extends CI_Controller
 /* End of file Ujian.php */
 /* Location: ./application/controllers/Ujian.php */
 /* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2018-03-26 10:33:33 */
+/* Generated by Harviacode Codeigniter CRUD Generator 2018-03-26 11:30:08 */
 /* http://harviacode.com */
