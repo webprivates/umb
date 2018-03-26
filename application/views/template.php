@@ -109,7 +109,7 @@
             <!-- /.content-wrapper -->
             <footer class="main-footer">
                 <div class="pull-right hidden-xs">
-                    <b>Version</b> 2.4.0
+                    <b>STMIK Handayani 2018</b>
                 </div>
                 <strong>Copyright &copy; 2018 <a href="https://adminlte.io">Wiwik - 2014020031</a>.</strong> All rights
                 reserved.
