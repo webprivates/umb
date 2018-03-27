@@ -64,7 +64,16 @@
 			<td><?php echo $panitia->nama_panitia ?></td>
 			<td><?php echo $panitia->username ?></td>
 			<td><?php echo $panitia->password ?></td>
-			<td><?php echo $panitia->status ?></td>
+			<td>
+                <?php 
+                if ($panitia->status == 1) {
+                    echo "Aktif";
+                }else{
+                    echo "Tidak aktif";
+                    }
+                 ?>         
+                
+            </td>
 			<td style="text-align:center" width="250px">
 				<?php 
 				echo anchor(site_url('panitia/read/'.$panitia->id_panitia),'<i class="fa fa-eye" aria-hidden="true"></i>Tampilkan ','class="btn btn-danger btn-sm"'); 
