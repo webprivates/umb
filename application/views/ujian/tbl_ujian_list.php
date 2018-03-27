@@ -23,11 +23,11 @@
                                 if ($q <> '')
                                 {
                                     ?>
-                                    <a href="<?php echo site_url('ujian'); ?>" class="btn btn-default">Reset</a>
+                                    <a href="<?php echo site_url('ujian'); ?>" class="btn btn-default">Ulang</a>
                                     <?php
                                 }
                             ?>
-                          <button class="btn btn-primary" type="submit">Cari</button>
+                          <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> Cari</button>
                         </span>
                     </div>
                 </form>
