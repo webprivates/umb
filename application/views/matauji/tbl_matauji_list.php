@@ -60,7 +60,16 @@
                 <tr>
 			<td width="6px"><?php echo ++$start ?></td>
 			<td><?php echo $matauji->nama_matauji ?></td>
-			<td><?php echo $matauji->aktif ?></td>
+			<td>
+                <?php 
+                if ($matauji->aktif == 1) {
+                    echo "AKTIF";
+                }else{
+                    echo "TIDAK AKTIF";
+                    }
+                 ?>         
+                
+            </td>
             
 			<td style="text-align:center" width="250px">
 				<?php 
