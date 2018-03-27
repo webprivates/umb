@@ -67,9 +67,9 @@
 			<td>
                 <?php 
                 if ($panitia->status == 1) {
-                    echo "Aktif";
+                    echo "AKTIF";
                 }else{
-                    echo "Tidak aktif";
+                    echo "TIDAK AKTIF";
                     }
                  ?>         
                 
