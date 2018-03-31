@@ -5,14 +5,14 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA PANITIA</h3>
+                        <h3 class="box-title">KELOLA DATA TBL_PANITIA</h3>
                     </div>
         
         <div class="box-body">
             <div class='row'>
             <div class='col-md-9'>
             <div style="padding-bottom: 10px;"'>
-        <?php echo anchor(site_url('panitia/create'), '<i class="fa fa-plus" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?></div>
+        <?php echo anchor(site_url('panitia/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?></div>
             </div>
             <div class='col-md-3'>
             <form action="<?php echo site_url('panitia/index'); ?>" class="form-inline" method="get">
@@ -23,11 +23,11 @@
                                 if ($q <> '')
                                 {
                                     ?>
-                                    <a href="<?php echo site_url('panitia'); ?>" class="btn btn-default">Ulang</a>
+                                    <a href="<?php echo site_url('panitia'); ?>" class="btn btn-default">Reset</a>
                                     <?php
                                 }
                             ?>
-                          <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> Cari</button>
+                          <button class="btn btn-primary" type="submit">Search</button>
                         </span>
                     </div>
                 </form>
@@ -51,6 +51,7 @@
             <tr>
                 <th>No</th>
 		<th>Nama Panitia</th>
+		<th>Id Batch</th>
 		<th>Username</th>
 		<th>Password</th>
 		<th>Status</th>
@@ -62,25 +63,17 @@
                 <tr>
 			<td width="10px"><?php echo ++$start ?></td>
 			<td><?php echo $panitia->nama_panitia ?></td>
+			<td><?php echo $panitia->id_batch ?></td>
 			<td><?php echo $panitia->username ?></td>
 			<td><?php echo $panitia->password ?></td>
-			<td>
-                <?php 
-                if ($panitia->status == 1) {
-                    echo "AKTIF";
-                }else{
-                    echo "TIDAK AKTIF";
-                    }
-                 ?>         
-                
-            </td>
-			<td style="text-align:center" width="250px">
+			<td><?php echo $panitia->status ?></td>
+			<td style="text-align:center" width="200px">
 				<?php 
-				echo anchor(site_url('panitia/read/'.$panitia->id_panitia),'<i class="fa fa-eye" aria-hidden="true"></i>Tampilkan ','class="btn btn-danger btn-sm"'); 
+				echo anchor(site_url('panitia/read/'.$panitia->id_panitia),'<i class="fa fa-eye" aria-hidden="true"></i>','class="btn btn-danger btn-sm"'); 
 				echo '  '; 
-				echo anchor(site_url('panitia/update/'.$panitia->id_panitia),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit ','class="btn btn-danger btn-sm"'); 
+				echo anchor(site_url('panitia/update/'.$panitia->id_panitia),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm"'); 
 				echo '  '; 
-				echo anchor(site_url('panitia/delete/'.$panitia->id_panitia),'<i class="fa fa-trash-o" aria-hidden="true"></i>Hapus ','class="btn btn-danger btn-sm" Delete','onclick="javasciprt: return confirm(\'Yakin Menghapus ?\')"'); 
+				echo anchor(site_url('panitia/delete/'.$panitia->id_panitia),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
 				?>
 			</td>
 		</tr>
