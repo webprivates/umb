@@ -10,7 +10,7 @@
 <table class='table table-bordered>'        
 
 	    <tr><td width='200'>Nama Panitia <?php echo form_error('nama_panitia') ?></td><td><input type="text" class="form-control" name="nama_panitia" id="nama_panitia" placeholder="Nama Panitia" value="<?php echo $nama_panitia; ?>" /></td></tr>
-	    <tr><td width='200'>Id Batch <?php echo form_error('id_batch') ?></td><td><input type="text" class="form-control" name="id_batch" id="id_batch" placeholder="Id Batch" value="<?php echo $id_batch; ?>" /></td></tr>
+	    <tr><td width='200'>Nama Batch <?php echo form_error('id_batch') ?></td><td><input type="text" class="form-control" name="id_batch" id="id_batch" placeholder="Id Batch" value="<?php echo $id_batch; ?>" /></td></tr>
 	    <tr><td width='200'>Username <?php echo form_error('username') ?></td><td><input type="text" class="form-control" name="username" id="username" placeholder="Username" value="<?php echo $username; ?>" /></td></tr>
 	    <tr><td width='200'>Password <?php echo form_error('password') ?></td><td><input type="text" class="form-control" name="password" id="password" placeholder="Password" value="<?php echo $password; ?>" /></td></tr>
 	    <tr><td width='200'>Status <?php echo form_error('status') ?></td><td><input type="text" class="form-control" name="status" id="status" placeholder="Status" value="<?php echo $status; ?>" /></td></tr>

@@ -13,6 +13,15 @@ class Panitia_model extends CI_Model
     function __construct()
     {
         parent::__construct();
+        $this->load->model('Panitia_model','pp');
+
+    }
+
+    //Relasikan Tabel
+    function get_data()
+    { 
+        $this->db->join('tbl_batch', 'tbl_batch.id_batch = tbl_panitia.id_batch');        
+        return $this->db->get('tbl_panitia')->result_array();
     }
 
     // get all

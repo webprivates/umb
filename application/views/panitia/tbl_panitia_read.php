@@ -13,7 +13,7 @@
         <h2 style="margin-top:0px">Tbl_panitia Read</h2>
         <table class="table">
 	    <tr><td>Nama Panitia</td><td><?php echo $nama_panitia; ?></td></tr>
-	    <tr><td>Id Batch</td><td><?php echo $id_batch; ?></td></tr>
+	    <tr><td>Nama Batch</td><td><?php echo $id_batch; ?></td></tr>
 	    <tr><td>Username</td><td><?php echo $username; ?></td></tr>
 	    <tr><td>Password</td><td><?php echo $password; ?></td></tr>
 	    <tr><td>Status</td><td><?php echo $status; ?></td></tr>

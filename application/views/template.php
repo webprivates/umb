@@ -42,7 +42,7 @@
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><b>A</b>LT</span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b>STMIK</b> HANDAYANI</span>
+                    <span class="logo-lg"><b>STMIK</b> HANDAYANI </span>
                 </a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top">
@@ -111,7 +111,7 @@
                 <div class="pull-right hidden-xs">
                     <b>STMIK Handayani 2018</b>
                 </div>
-                <strong>Copyright &copy; 2018 <a href="https://adminlte.io">Wiwik - 2014020031</a>.</strong> All rights
+                <strong>Copyright &copy; <?php  echo date ('Y'); ?> <a href="https://adminlte.io">Wiwik - 2014020031</a>.</strong> All rights
                 reserved.
             </footer>
 

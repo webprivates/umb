@@ -8,22 +8,27 @@ class Panitia extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        is_login();
-        $this->load->model('Panitia_model');
+        //is_login();
+        $this->load->model('Panitia_model','pp');
+        $this->load->model('Batch_model');
         $this->load->library('form_validation');
     }
 
     public function index()
     {
+        // //Relasikan Tabel
+        $data['panitia_data'] = $this->pp->get_data();
+        $this->load->view('tbl_panitia','$data');
+
         $q = urldecode($this->input->get('q', TRUE));
-        $start = intval($this->uri->segment(3));
+        $start = intval($this->input->get('start'));
         
         if ($q <> '') {
-            $config['base_url'] = base_url() . '.php/c_url/index.html?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'index.php/panitia/index.html?q=' . urlencode($q);
+            $config['base_url'] = base_url() . 'panitia?q=' . urlencode($q);
+            $config['first_url'] = base_url() . 'panitia?q=' . urlencode($q);
         } else {
-            $config['base_url'] = base_url() . 'index.php/panitia/index/';
-            $config['first_url'] = base_url() . 'index.php/panitia/index/';
+            $config['base_url'] = base_url() . 'panitia';
+            $config['first_url'] = base_url() . 'panitia';
         }
 
         $config['per_page'] = 10;

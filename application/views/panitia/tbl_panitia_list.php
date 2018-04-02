@@ -5,7 +5,7 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA TBL_PANITIA</h3>
+                        <h3 class="box-title">KELOLA DATA PANITIA</h3>
                     </div>
         
         <div class="box-body">
@@ -51,7 +51,7 @@
             <tr>
                 <th>No</th>
 		<th>Nama Panitia</th>
-		<th>Id Batch</th>
+		<th>Nama Batch</th>
 		<th>Username</th>
 		<th>Password</th>
 		<th>Status</th>
@@ -63,7 +63,7 @@
                 <tr>
 			<td width="10px"><?php echo ++$start ?></td>
 			<td><?php echo $panitia->nama_panitia ?></td>
-			<td><?php echo $panitia->id_batch ?></td>
+			<td><?php echo $panitia->nama_batch ?></td>
 			<td><?php echo $panitia->username ?></td>
 			<td><?php echo $panitia->password ?></td>
 			<td><?php echo $panitia->status ?></td>
