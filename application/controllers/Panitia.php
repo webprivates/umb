@@ -9,7 +9,7 @@ class Panitia extends CI_Controller
     {
         parent::__construct();
         //is_login();
-        $this->load->model('Panitia_model','pp');
+        $this->load->model('Panitia_model');
         $this->load->model('Batch_model');
         $this->load->library('form_validation');
     }
@@ -17,8 +17,8 @@ class Panitia extends CI_Controller
     public function index()
     {
         // //Relasikan Tabel
-        $data['panitia_data'] = $this->pp->get_data();
-        $this->load->view('tbl_panitia','$data');
+        // $data['panitia_data'] = $this->pp->get_data();
+        // $this->load->view('tbl_panitia','$data');
 
         $q = urldecode($this->input->get('q', TRUE));
         $start = intval($this->input->get('start'));
@@ -35,8 +35,6 @@ class Panitia extends CI_Controller
         $config['page_query_string'] = FALSE;
         $config['total_rows'] = $this->Panitia_model->total_rows($q);
         $panitia = $this->Panitia_model->get_limit_data($config['per_page'], $start, $q);
-        $config['full_tag_open'] = '<ul class="pagination pagination-sm no-margin pull-right">';
-        $config['full_tag_close'] = '</ul>';
         $this->load->library('pagination');
         $this->pagination->initialize($config);
 
@@ -73,6 +71,7 @@ class Panitia extends CI_Controller
     {
         $data = array(
             'button' => 'Create',
+            'batch_data' => $this->Matauji_model->get_all(),
             'action' => site_url('panitia/create_action'),
 	    'id_panitia' => set_value('id_panitia'),
 	    'nama_panitia' => set_value('nama_panitia'),
@@ -113,6 +112,7 @@ class Panitia extends CI_Controller
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('panitia/update_action'),
+                'batch_data' => $this->Batch_model->get_all(),
 		'id_panitia' => set_value('id_panitia', $row->id_panitia),
 		'nama_panitia' => set_value('nama_panitia', $row->nama_panitia),
 		'id_batch' => set_value('id_batch', $row->id_batch),

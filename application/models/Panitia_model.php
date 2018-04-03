@@ -13,15 +13,18 @@ class Panitia_model extends CI_Model
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Panitia_model','pp');
+        $this->load->model('Panitia_model');
 
     }
 
     //Relasikan Tabel
-    function get_data()
+    function batch($limit, $start = 0, $q = Null)
     { 
-        $this->db->join('tbl_batch', 'tbl_batch.id_batch = tbl_panitia.id_batch');        
-        return $this->db->get('tbl_panitia')->result_array();
+        //Relasikan tabel dengan dinamis
+        $this->db->join('tbl_batch', 'tbl_batch.id_batch = tbl_panitia.id_batch', $q);        
+        $this->db->order_by('id_panitia','DESC');
+        $this->db->limit($limit, $start);
+        return $this->db->get('tbl_panitia')->result();
     }
 
     // get all
