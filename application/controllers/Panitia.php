@@ -16,9 +16,7 @@ class Panitia extends CI_Controller
 
     public function index()
     {
-        // //Relasikan Tabel
-        // $data['panitia_data'] = $this->pp->get_data();
-        // $this->load->view('tbl_panitia','$data');
+
 
         $q = urldecode($this->input->get('q', TRUE));
         $start = intval($this->input->get('start'));
@@ -30,14 +28,15 @@ class Panitia extends CI_Controller
             $config['base_url'] = base_url() . 'panitia';
             $config['first_url'] = base_url() . 'panitia';
         }
+        //Relasikan
+         // $panitia = $this->Panitia_model->batch($config['per_page'], $start, $q);
 
         $config['per_page'] = 10;
         $config['page_query_string'] = FALSE;
         $config['total_rows'] = $this->Panitia_model->total_rows($q);
-        $panitia = $this->Panitia_model->get_limit_data($config['per_page'], $start, $q);
+        $panitia = $this->Panitia_model->batch($config['per_page'], $start, $q);
         $this->load->library('pagination');
         $this->pagination->initialize($config);
-
         $data = array(
             'panitia_data' => $panitia,
             'q' => $q,

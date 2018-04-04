@@ -21,8 +21,7 @@ class Panitia_model extends CI_Model
     function batch($limit, $start = 0, $q = Null)
     { 
         //Relasikan tabel dengan dinamis
-        $this->db->join('tbl_batch', 'tbl_batch.id_batch = tbl_panitia.id_batch', $q);        
-        $this->db->order_by('id_panitia','DESC');
+       $this->db->join('tbl_batch', 'tbl_batch.id_batch = tbl_panitia.id_batch', $q);
         $this->db->limit($limit, $start);
         return $this->db->get('tbl_panitia')->result();
     }

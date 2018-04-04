@@ -51,7 +51,8 @@
             <tr>
                 <th>No</th>
 		<th>Nama Panitia</th>
-		<th>Nama Batch</th>
+        <th>Jadwal</th>
+		<th>Tanggal</th>
 		<th>Username</th>
 		<th>Password</th>
 		<th>Status</th>
@@ -63,10 +64,20 @@
                 <tr>
 			<td width="10px"><?php echo ++$start ?></td>
 			<td><?php echo $panitia->nama_panitia ?></td>
-			<td><?php echo $panitia->nama_batch ?></td>
+            <td><?php echo $panitia->waktu_batch ?></td>
+			<td><?php echo $panitia->tgl ?></td>
 			<td><?php echo $panitia->username ?></td>
 			<td><?php echo $panitia->password ?></td>
-			<td><?php echo $panitia->status ?></td>
+            <td>
+                <?php 
+                if ($panitia->status == 1) {
+                    echo "AKTIF";
+                }else{
+                    echo "TIDAK AKTIF";
+                    }
+                 ?>         
+                
+            </td>
 			<td style="text-align:center" width="200px">
 				<?php 
 				echo anchor(site_url('panitia/read/'.$panitia->id_panitia),'<i class="fa fa-eye" aria-hidden="true"></i>','class="btn btn-danger btn-sm"'); 
