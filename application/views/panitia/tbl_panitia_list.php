@@ -51,6 +51,7 @@
             <tr>
                 <th>No</th>
 		<th>Nama Panitia</th>
+        <th>Batch</th>
         <th>Jadwal</th>
 		<th>Tanggal</th>
 		<th>Username</th>
@@ -64,6 +65,7 @@
                 <tr>
 			<td width="10px"><?php echo ++$start ?></td>
 			<td><?php echo $panitia->nama_panitia ?></td>
+            <td><?php echo $panitia->nama_batch ?></td>
             <td><?php echo $panitia->waktu_batch ?></td>
 			<td><?php echo $panitia->tgl ?></td>
 			<td><?php echo $panitia->username ?></td>

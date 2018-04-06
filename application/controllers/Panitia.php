@@ -70,7 +70,7 @@ class Panitia extends CI_Controller
     {
         $data = array(
             'button' => 'Create',
-            'batch_data' => $this->Matauji_model->get_all(),
+            'batch_data' => $this->Batch_model->get_all(),
             'action' => site_url('panitia/create_action'),
 	    'id_panitia' => set_value('id_panitia'),
 	    'nama_panitia' => set_value('nama_panitia'),
