@@ -7,7 +7,7 @@
             </div>
             <form action="<?php echo $action; ?>" method="post">
             
-<table class='table table-bordered>'        
+<table class='table table-bordered'>        
 
 	    <tr><td width='200'>Nama Panitia <?php echo form_error('nama_panitia') ?></td><td><input type="text" class="form-control" name="nama_panitia" id="nama_panitia" placeholder="Nama Panitia" value="<?php echo $nama_panitia; ?>" /></td></tr>
 	    <tr>
@@ -41,7 +41,7 @@
 	    <tr><td width='200'>Password <?php echo form_error('password') ?></td><td><input type="text" class="form-control" name="password" id="password" placeholder="Password" value="<?php echo $password; ?>" /></td></tr>
 	    <tr><td width='200'>Status Aktif <?php echo form_error('status') ?></td><td>
         <?php echo form_dropdown('status', array('1' => 'AKTIF', '0' => 'TIDAK AKTIF'), $status, array('class' => 'form-control')); ?>
-        </td></tr>status
+        </td></tr>
 	    <tr><td></td><td><input type="hidden" name="id_panitia" value="<?php echo $id_panitia; ?>" /> 
 	    <button type="submit" class="btn btn-danger"><i class="fa fa-floppy-o"></i> <?php echo $button ?></button> 
 	    <a href="<?php echo site_url('panitia') ?>" class="btn btn-info"><i class="fa fa-sign-out"></i> Kembali</a></td></tr>

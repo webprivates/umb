@@ -54,7 +54,7 @@ class Panitia extends CI_Controller
             $data = array(
 		'id_panitia' => $row->id_panitia,
 		'nama_panitia' => $row->nama_panitia,
-		'id_batch' => $row->id_batch,
+		'batch' => $row->nama_batch,
 		'username' => $row->username,
 		'password' => $row->password,
 		'status' => $row->status,
@@ -72,12 +72,12 @@ class Panitia extends CI_Controller
             'button' => 'Create',
             'batch_data' => $this->Batch_model->get_all(),
             'action' => site_url('panitia/create_action'),
-	    'id_panitia' => set_value('id_panitia'),
-	    'nama_panitia' => set_value('nama_panitia'),
-	    'id_batch' => set_value('id_batch'),
-	    'username' => set_value('username'),
-	    'password' => set_value('password'),
-	    'status' => set_value('status'),
+            'id_panitia' => set_value('id_panitia'),
+            'nama_panitia' => set_value('nama_panitia'),
+            'id_batch' => set_value('id_batch'),
+            'username' => set_value('username'),
+            'password' => set_value('password'),
+            'status' => set_value('status'),
 	);
         $this->template->load('template','panitia/tbl_panitia_form', $data);
     }
